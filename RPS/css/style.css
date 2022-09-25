@@ -1,0 +1,74 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Open Sans', sans-serif;
+}
+.main{
+background:  no-repeat center/100% url('../src/background.jpg');
+
+height: 100vh;
+width: 100%;
+
+
+}
+.count div{
+    color: #fff;
+}
+.count{
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 62px;
+}
+.select{
+    position: relative;
+    margin-top: 150px;
+    display: flex;
+    justify-content: space-around;
+}
+.players{
+    display: flex;
+    justify-content: space-around;
+}
+.players img{
+    width: 200px;
+    height: 200px;
+}
+.select img{
+    width: 300px;
+    height: 300px;
+    transition: all .3s;
+ 
+    
+}
+.select img:hover{
+    transform: scale(1.2);
+}
+.plrchoise{
+    text-align: center;
+    color: white;
+    font-size: 36px;
+
+}
+.button{
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+}
+.btn{
+    padding: 10px 10px;
+    color: white;
+    background-color: #303036;
+    font-size: 32px;
+    border-radius: 2px;
+    border: 1px solid;
+    cursor: pointer;
+    transition: all .3s;
+    margin-top: 30px;
+}
+.btn:hover{
+    transform: scale(1.2);
+}

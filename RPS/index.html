@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,700;1,500&family=Open+Sans:ital,wght@0,500;0,800;1,500&family=Press+Start+2P&family=Roboto:ital,wght@0,300;1,300;1,500&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <div class="count">
+            <div id="playerc">00</div>
+            <div>:</div>
+            <div id="botc">00</div>
+        </div>
+        <div class="players">
+            <img src="src/user.png" alt="" class="player" id="player">
+            <img src="src/user.png" alt="" class="bot" id="bot">
+        </div>
+        <div class="select">
+            <img src="src/paper.png" alt="" id="paper">
+            <img src="src/rock.png" alt="" id="rock" >
+            <img src="src/scissors.png" alt="" id="scissors" >
+        </div>
+        <div id="ch" class="plrchoise">Your choise is </div>
+        <div class="button">
+            <button id="play" class="btn">Play</button>
+        </div>
+        
+    </div>
+    <script>
+        // var plr = document.getElementById('player');
+        // var bot = document.getElementById('bot');
+        var ch = document.getElementById('ch');
+        // var choise = ["rock","paper","scissors"]
+        // var rand = choise[Math.floor(Math.random()*choise.length)];
+        var papper = document.getElementById('paper');
+        var rock = document.getElementById('rock');
+        var scissors = document.getElementById('scissors');
+        var choise = '';
+        var userimg = document.getElementById('player');
+        var botimg = document.getElementById('bot');
+        var play = document.getElementById('play')
+        var imgs = ["src/paper.png","src/rock.png","src/scissors.png"];
+        var select = ["rock","scissors","paper"];
+        var rand = select[Math.floor(Math.random()*select.length)];
+        var count = 0;
+        var botc = 0;
+        var botcount = document.getElementById('botc');
+        var plrcount = document.getElementById('playerc');
+        papper.onclick = function() {
+            choise = 'paper';
+            userimg.src=imgs[0];
+         
+        }
+        rock.onclick = function() {
+            choise = 'rock';
+            userimg.src=imgs[1];
+    
+        }
+        scissors.onclick = function() {
+            choise = 'scissors';
+            userimg.src=imgs[2];
+           
+        }
+        setInterval(() => {
+        if(choise == "paper")
+        ch.innerHTML = choise;
+        else if(choise == "rock")
+        ch.innerHTML = choise;
+        else if(choise == "scissors")
+        ch.innerHTML = choise;
+        plrcount.innerHTML = count;
+        botcount.innerHTML = botc;
+        if(plrcount.innerHTML == 3){
+        window.alert("You win!")
+        count = 0;
+        botc = 0;
+        }else if(botcount.innerHTML == 3){
+        window.alert("You lose!")
+        count = 0;
+        botc = 0;   
+
+        }
+        }, 100);
+
+
+        play.onclick = function(p1, p2){
+        p1 = choise;
+        p2 = rand;
+        if(choise == rand){
+       // alert(`draw! ${rand}`);
+             botimg.src=userimg.src;
+            rand = ("rock","scissors","paper");
+            console.log(rand);
+        }
+        else if(p2 == "paper" && p1 == "rock"){
+       // alert(`you lost! ${rand}`);
+        botimg.src = imgs[0];
+        rand = ("rock","scissors");
+        botc++;
+      
+      
+        }
+        else if(p2 == "rock" && p1 == "scissors"){
+        //alert(`you lost ${rand}`);
+        botimg.src = imgs[1];
+        rand = ("paper","scissors");
+        botc++;
+  
+     
+        }
+        else if(p2 == "scissors" && p1 == "paper"){
+        // alert(`you lost ${rand}`);
+        botimg.src = imgs[2];
+        rand = ("rock","paper");
+        botc++;
+   
+    
+        }
+        if(p1 == "paper" && p2 == "rock"){
+        count++;
+        botimg.src=imgs[1]
+        rand = ("paper","scissors");
+        }
+        else if(p1 == "rock" && p2 == "scissors"){
+        count++;
+        botimg.src=imgs[2];
+        rand = ("paper","scissors");
+        }
+        else if(p1 == "scissors" && p2 == "paper"){
+        count++;
+        botimg.src=imgs[0];
+        rand = ("paper","scissors");;
+        }
+      
+        
+        }
+    
+
+        
+    </script>
+</body>
+</html>
